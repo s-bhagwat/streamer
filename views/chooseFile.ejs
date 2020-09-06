@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File To Watch</title>
+  </head>
+  <body>
+    <h1>Please choose files you wanna watch</h1>
+    <% let i = 0; %> <% files.forEach(e=>{ %>
+    <p><a href="/stream/<%= i %>"><%= e.name %></a></p>
+    <% i++ %> <% }); %>
+  </body>
+</html>

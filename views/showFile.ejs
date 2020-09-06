@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= search %></title>
+    <style>
+      p {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+<% for (let i=0; i<searchResults.length; i++ ){ %>
+    <div class="search-result">
+      <p class="component">
+        <a href="/showDetail/<%= i %>"
+          ><%= searchResults[i].title %></a
+        >
+      </p>
+      <p class="component"><%= searchResults[i].seeds %></p>
+      <p class="component"><%= searchResults[i].leeches %></p>
+      <p class="component"><%= searchResults[i].size %></p>
+      <p class="component"><%= searchResults[i].comment %></p>
+    </div>
+  <% } %>
+  </body>
+</html>
