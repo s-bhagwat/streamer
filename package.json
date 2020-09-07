@@ -17,9 +17,11 @@
   },
   "devDependencies": {},
   "scripts": {
-    "prestart": "npm install -g node-pre-gyp",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
+  },
+  "engines": {
+    "node": "12.18.3"
   },
   "author": "Anonymous",
   "license": "MIT"
