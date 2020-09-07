@@ -5,10 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>File To Watch</title>
   </head>
+  <style>
+    body {
+      background: linear-gradient(
+          169deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(32, 168, 139, 1) 20%,
+          rgba(0, 212, 255, 1) 100%
+        )
+        no-repeat;
+      min-height: 100vh;
+    }
+    .heading {
+      margin: auto;
+    }
+    .file a {
+      text-decoration: none;
+      color: rgb(211, 219, 226);
+    }
+  </style>
   <body>
-    <h1>Please choose files you wanna watch</h1>
+    <h1 class="heading">Please choose files you wanna watch</h1>
     <% let i = 0; %> <% files.forEach(e=>{ %>
-    <p><a href="/stream/<%= i %>"><%= e.name %></a></p>
+    <p class="file"><a href="/stream/<%= i %>"><%= e.name %></a></p>
     <% i++ %> <% }); %>
   </body>
 </html>

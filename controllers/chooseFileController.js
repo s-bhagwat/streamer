@@ -47,7 +47,7 @@ exports.torrentStarter = async (req, res, next) => {
   next();
 };
 exports.postHandler = (req, res) => {
-  res.status(200).render('showFile', {
+  res.status(200).render('chooseFile', {
     magnet: req.body.magnet,
     files: res.locals.torrentFiles,
   });

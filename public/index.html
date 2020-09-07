@@ -5,16 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Streamer</title>
     <style>
-      h1 {
+      body {
+        background: linear-gradient(
+            169deg,
+            rgba(2, 0, 36, 1) 0%,
+            rgba(32, 168, 139, 1) 20%,
+            rgba(0, 212, 255, 1) 100%
+          )
+          no-repeat;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      h1,
+      .middle {
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 3.5rem;
+      }
+      .middle input {
+        border: 1px solid #ccc;
+        box-shadow: inset 0 1px 3px #ddd;
+        border-radius: 4px;
+        font-size: 1.5em;
+        padding: 0.2em 0.5em;
+        margin-right: 2rem;
+      }
+      .myButton {
+        box-shadow: 0px 1px 0px 0px #f0f7fa;
+        background: linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+        background-color: #33bdef;
+        border-radius: 6px;
+        border: 1px solid #057fd0;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 1em;
+        font-weight: bold;
+        padding: 0.8em 2em;
+        text-decoration: none;
+        text-shadow: 0px -1px 0px #5b6178;
+      }
+      .myButton:hover {
+        background: linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+        background-color: #019ad2;
+      }
+      .myButton:active {
+        position: relative;
+        top: 1px;
       }
     </style>
   </head>
   <body>
     <form action="/showFiles" method="POST">
-      <h1>Paste Magnet Links Here</h1>
-      <input name="search" type="text" />
-      <button type="submit">Get Files</button>
+      <h1>Search any video you wanna watch 😊</h1>
+      <div class="middle">
+        <input name="search" type="text" />
+        <button class="myButton" type="submit">Get Files</button>
+      </div>
     </form>
   </body>
 </html>

@@ -1,5 +1,7 @@
 // this controller is for getting information of a specific torrent and
 // then send back that informaiton to the client
+const cheerio = require('cheerio');
+const request = require('request-promise');
 
 const getTorrent = async (torrentUrl) => {
   try {
@@ -41,11 +43,11 @@ const getTorrent = async (torrentUrl) => {
 };
 
 exports.getTorrentDetails = async (req, res, next) => {
-  console.log(
-    'quasimodo wala variable:   ' + req.session.searchResults[0].torrentUrl
-  );
-  console.log('req.params.num ' + req.params.num);
-  //    console.log(req.session.searchResults[res.locals.id].torrentUrl);
+  // console.log(
+  //   'quasimodo wala variable:   ' + req.session.searchResults[0].torrentUrl
+  // );
+  // console.log('req.params.num ' + req.params.num);
+  console.log(req.session.searchResults[req.params.num].torrentUrl);
   const torrentUrl = req.session.searchResults[req.params.num].torrentUrl;
   const torrentDetails = await getTorrent(torrentUrl);
   req.body.torrentDetails = torrentDetails;
@@ -54,6 +56,6 @@ exports.getTorrentDetails = async (req, res, next) => {
 
 exports.getHandler = (req, res) => {
   res.status(200).render('showDetails', {
-    torrentDetails: req.body.torrentDetails,
+    torrentDetails: req.body.torrentDetails[0],
   });
 };

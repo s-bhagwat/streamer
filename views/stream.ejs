@@ -5,9 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= fileName %></title>
   </head>
+  <style>
+    body {
+      background: linear-gradient(
+        169deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(32, 168, 139, 1) 20%,
+        rgba(0, 212, 255, 1) 100%
+      );
+    }
+    .file-title {
+      text-align: center;
+    }
+    .video-container {
+      margin: auto;
+      width: 80vw;
+    }
+    .video-container video {
+      width: 80vw;
+      height: auto;
+    }
+  </style>
   <body>
-    <video controls autoplay>
-      <source src="/stream/play/<%= id %>" type="video/mp4" />
-    </video>
+    <h1 class="file-title"><%= fileName %></h1>
+    <p class="video-container">
+      <video controls autoplay>
+        <source src="/stream/play/<%= id %>" type="video/mp4" />
+      </video>
+    </p>
   </body>
 </html>

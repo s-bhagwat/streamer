@@ -5,8 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Torrent Title</title>
   </head>
+  <style>
+    body {
+      background: linear-gradient(
+        169deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(32, 168, 139, 1) 20%,
+        rgba(0, 212, 255, 1) 100%
+      );
+    }
+    .upper-div {
+      display: flex;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+    }
+    .upper-div > div {
+      padding: 3rem;
+    }
+    .details li {
+      list-style: none;
+      color: darkcyan;
+      font-size: 1.2em;
+    }
+    .description {
+      text-align: center;
+    }
+    .stream button {
+      padding: 1rem 2rem;
+      font-size: 1em;
+    }
+    .myButton {
+      box-shadow: 0px 1px 0px 0px #f0f7fa;
+      background: linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+      background-color: #33bdef;
+      border-radius: 6px;
+      border: 1px solid #057fd0;
+      display: inline-block;
+      cursor: pointer;
+      color: #ffffff;
+      font-family: Arial;
+      font-size: 1em;
+      font-weight: bold;
+      padding: 0.8em 2em;
+      text-decoration: none;
+      text-shadow: 0px -1px 0px #5b6178;
+    }
+    .myButton:hover {
+      background: linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+      background-color: #019ad2;
+    }
+    .myButton:active {
+      position: relative;
+      top: 1px;
+    }
+    @media only screen and (max-width: 700px),
+      only screen and (max-device-width: 700px) {
+      .align-center img {
+        width: 75vw;
+      }
+    }
+  </style>
   <body>
-    <div></div>
-    <div class="description"><%= description %></div>
+    <h1 class="heading">Torrent Title</h1>
+    <div class="upper-div">
+      <div class="details">
+        <% torrentDetails.details.forEach((e)=>{ %>
+        <li><%= e.left %> : <%= e.right %></li>
+        <% }) %>
+      </div>
+      <div class="stream">
+        <form action="/chooseFiles" method="POST">
+          <input
+            style="display: none; visibility: hidden"
+            name="magnet"
+            type="text"
+            value="<%= torrentDetails.magnet %>"
+          />
+          <button class="myButton" type="submit">Get Files</button>
+        </form>
+      </div>
+    </div>
+    <div class="description"><%- torrentDetails.description %></div>
+    <script>
+      document.querySelectorAll('img').forEach((e) => {
+        e.src = e.getAttribute('data-original');
+      });
+    </script>
   </body>
 </html>
