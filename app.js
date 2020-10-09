@@ -11,6 +11,7 @@ const showFilesRouter = require('./routers/showFilesRouter');
 const showDetailRouter = require('./routers/showDetailRoutes');
 const chooseFilesRouter = require('./routers/chooseFilesRouter');
 const streamRouter = require('./routers/streamRouter');
+const downloadRouter = require('./routers/downloadRouter');
 
 // 1) MIDDLEWARES
 
@@ -36,5 +37,6 @@ app.use('/showFiles', showFilesRouter);
 app.use('/showDetail', showDetailRouter);
 app.use('/chooseFiles', chooseFilesRouter);
 app.use('/stream', streamRouter);
+app.use('/download', downloadRouter);
 
 module.exports = app;

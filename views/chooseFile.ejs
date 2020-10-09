@@ -20,15 +20,22 @@
     .heading {
       margin: auto;
     }
-    .file a {
+    .file {
       text-decoration: none;
       color: rgb(211, 219, 226);
     }
+    a {
+      text-decoration: none;
+      color: #402860;
+      font-size: 1.2em;
+    }
   </style>
   <body>
-    <h1 class="heading">Please choose files you wanna watch</h1>
+    <h1 class="heading">Please choose files you wanna watch/download</h1>
     <% let i = 0; %> <% files.forEach(e=>{ %>
-    <p class="file"><a href="/stream/<%= i %>"><%= e.name %></a></p>
+    <p class="file"><%= e.name %></p>
+    <a href="/stream/<%= i %>">Play</a>
+    <a download href="/download/<%= i %>">Download</a>
     <% i++ %> <% }); %>
   </body>
 </html>
